@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Samsung</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Imagens/logo2.png" alt="Logo da Samsung">
+            <p>BRASIL • 1986-2026</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="mobile.html">MOBILE</a></li>
+                <li><a href="eletrodomestico.html">ELETRODOMÉSTICO</a></li>
+                <li><a href="acessorios.html">ACESSÓRIOS</a></li>
+                <li><a href="monitores.html">MONITORES</a></li>
+            </ul>
+        </nav>
+        <div class="acoes">
+            <a href="carrinho-novo.html" title="Carrinho">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <a href="#" onclick="irParaPerfil(event)" title="Minha Conta" style="cursor: pointer;">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="container-checkout">
+        <div class="checkout-content">
+            <!-- Resumo do Carrinho -->
+            <div class="resumo-section">
+                <h2>📦 Resumo do Pedido</h2>
+                <div id="resumo-itens" class="resumo-itens">
+                    <!-- Preenchido por JS -->
+                </div>
+                <div class="resumo-totais">
+                    <div class="total-item">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="total-item">
+                        <span>Frete:</span>
+                        <span id="frete">Grátis</span>
+                    </div>
+                    <div class="total-item total-final">
+                        <span>Total:</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                </div>
+                <button class="btn-voltar" onclick="window.location.href='carrinho-novo.html'">
+                    ← Voltar ao Carrinho
+                </button>
+            </div>
+
+            <!-- Formulário de Pagamento -->
+            <div class="pagamento-section">
+                <h2>💳 Dados de Pagamento</h2>
+                
+                <!-- Informações Pessoais -->
+                <div class="form-section">
+                    <h3>👤 Informações Pessoais</h3>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+                    </div>
+                </div>
+
+                <!-- Endereço de Entrega -->
+                <div class="form-section">
+                    <h3>📍 Endereço de Entrega</h3>
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" placeholder="12345-678" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rua">Rua</label>
+                        <input type="text" id="rua" placeholder="Rua Principal" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numero">Número</label>
+                            <input type="text" id="numero" placeholder="123" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" placeholder="Apto 101 (opcional)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" placeholder="Bairro" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" placeholder="São Paulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select id="estado" required>
+                                <option value="">Selecione...</option>
+                                <option value="SP">SP</option>
+                                <option value="RJ">RJ</option>
+                                <option value="MG">MG</option>
+                                <option value="BA">BA</option>
+                                <option value="SC">SC</option>
+                                <option value="RS">RS</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="CE">CE</option>
+                                <option value="PA">PA</option>
+                                <option value="AM">AM</option>
+                                <option value="DF">DF</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Método de Pagamento -->
+                <div class="form-section">
+                    <h3>💰 Método de Pagamento</h3>
+                    <div class="metodos-pagamento">
+                        <label class="metodo">
+                            <input type="radio" name="pagamento" value="pix" checked>
+                            <span><i class="fas fa-qrcode"></i> Pix</span>
+                        </label>
+                        <label class="metodo">
+                            <input type="radio" name="pagamento" value="cartao">
+                            <span><i class="fas fa-credit-card"></i> Cartão de Crédito</span>
+                        </label>
+                    </div>
+
+                    <!-- Formulário Cartão (oculto inicialmente) -->
+                    <div id="cartao-section" class="cartao-section" style="display: none;">
+                        <div class="form-group">
+                            <label for="numero-cartao">Número do Cartão</label>
+                            <input type="text" id="numero-cartao" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="validade">Validade</label>
+                                <input type="text" id="validade" placeholder="MM/AA" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensagem de Feedback -->
+                <div id="mensagem" class="mensagem"></div>
+
+                <!-- Botão Finalizar -->
+                <div class="botoes-finais">
+                    <button class="btn btn-cancelar" onclick="window.location.href='carrinho-novo.html'">
+                        ❌ Cancelar
+                    </button>
+                    <button class="btn btn-confirmar" onclick="finalizarPedido()">
+                        ✓ Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            Copyright © 1995-2026 Samsung. Todos os direitos reservados.<br/>
+            Samsung Eletrônica da Amazônia LTDA.<br/>
+            Formas de pagamento aceitas: Pix e Cartão de crédito.
+        </p>
+    </footer>
+
+    <script src="Js/carrinho.js"></script>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
+      authDomain: "samsung-cd18d.firebaseapp.com",
+      projectId: "samsung-cd18d",
+      storageBucket: "samsung-cd18d.firebasestorage.app",
+      messagingSenderId: "582826463476",
+      appId: "1:582826463476:web:063e0b28af2d2626d24ea1",
+      measurementId: "G-Y3GJJTRXQ0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.irParaPerfil = function(e) {
+      e.preventDefault();
+      
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.href = 'show.html';
+        } else {
+          window.location.href = 'login.html';
+        }
+      });
+    };
+
+    // Carregar carrinho
+    document.addEventListener('DOMContentLoaded', function() {
+        carregarResumoCarrinho();
+        
+        // Alternar entre Pix e Cartão
+        const radios = document.querySelectorAll('input[name="pagamento"]');
+        radios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                const cartaoSection = document.getElementById('cartao-section');
+                cartaoSection.style.display = this.value === 'cartao' ? 'block' : 'none';
+            });
+        });
+    });
+
+    function carregarResumoCarrinho() {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho_samsung') || '[]');
+        const resumoItens = document.getElementById('resumo-itens');
+        
+        if (carrinho.length === 0) {
+            resumoItens.innerHTML = '<p style="text-align: center; color: #666;">Seu carrinho está vazio</p>';
+            return;
+        }
+
+        let html = '';
+        let subtotal = 0;
+
+        carrinho.forEach(item => {
+            const total = item.preco * item.quantidade;
+            subtotal += total;
+            html += `
+                <div class="resumo-item">
+                    <div class="item-info">
+                        <strong>${item.nome}</strong>
+                        <small>${item.quantidade}x R$ ${parseFloat(item.preco).toFixed(2)}</small>
+                    </div>
+                    <div class="item-preco">R$ ${total.toFixed(2)}</div>
+                </div>
+            `;
+        });
+
+        resumoItens.innerHTML = html;
+        document.getElementById('subtotal').textContent = 'R$ ' + subtotal.toFixed(2);
+        document.getElementById('total').textContent = 'R$ ' + subtotal.toFixed(2);
+    }
+
+    window.finalizarPedido = function() {
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+        const endereco = document.getElementById('rua').value;
+        const numero = document.getElementById('numero').value;
+        const cidade = document.getElementById('cidade').value;
+        const estado = document.getElementById('estado').value;
+        const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
+        const mensagemEl = document.getElementById('mensagem');
+
+        // Validar campos obrigatórios
+        if (!nome || !email || !telefone || !endereco || !numero || !cidade || !estado) {
+            mensagemEl.className = 'mensagem erro';
+            mensagemEl.textContent = '❌ Preencha todos os campos obrigatórios!';
+            return;
+        }
+
+        if (pagamento === 'cartao') {
+            const numeroCartao = document.getElementById('numero-cartao').value;
+            const validade = document.getElementById('validade').value;
+            const cvv = document.getElementById('cvv').value;
+
+            if (!numeroCartao || !validade || !cvv) {
+                mensagemEl.className = 'mensagem erro';
+                mensagemEl.textContent = '❌ Preencha os dados do cartão!';
+                return;
+            }
+        }
+
+        // Simular processamento
+        const botao = event.target;
+        botao.disabled = true;
+        botao.textContent = '⏳ Processando...';
+
+        setTimeout(() => {
+            // Limpar carrinho
+            localStorage.removeItem('carrinho_samsung');
+            
+            // Mostrar sucesso
+            mensagemEl.className = 'mensagem sucesso';
+            mensagemEl.textContent = '✅ Pedido finalizado com sucesso! Redirecionando...';
+
+            // Redirecionar
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        }, 2000);
+    };
+    </script>
+</body>
+</html>

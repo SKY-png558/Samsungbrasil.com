@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Acessórios</title>
+    <link rel="stylesheet" href="css/monitores.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">SAMSUNG</div>
+        <nav>
+        <ul>
+            <li><a href="mobile.html">MOBILE</a></li>
+            <li><a href="eletrodomestico.html">ELETRODOMÉSTICO</a></li>
+            <li><a href="monitores.html">MONITORES</a></li>
+            <li><a href="index.html">HOME</a></li>
+        </ul>
+        </nav>
+        <div class="acoes">
+    <a href="carrinho.html" title="Carrinho">
+        <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+
+    <a href="#" onclick="irParaPerfil(event)" title="Minha Conta" style="cursor: pointer;">
+        <i class="fa-solid fa-user"></i>
+    </a>
+</div>
+</header>
+
+<h1 class="titulo">Acessórios Samsung</h1>
+
+<section class="produtos">
+
+    <div class="card">
+        <img src="Imagens/acessorios1.jpg" alt="">
+        <h3>Pulseira Hybrid Galaxy Watch8Watch8 Classic (P/M/G)</h3>
+        <div class="preco">R$ 399,00</div>
+        <div class="desconto">à vista</div>
+    </div>
+
+    <div class="card">
+        <img src="Imagens/acessorios3.webp" alt="">
+        <h3>Capa Frame Cover Galaxy Tab S11 Ultra</h3>
+        <div class="preco">R$ 474,05</div>
+        <div class="desconto">à vista (5% de desconto)</div>
+    </div>
+
+    <div class="card">
+        <img src="Imagens/carregador.avif" alt="">
+        <h3>Carregador Rápido Sem Fio 15W Duo Pad</h3>
+        <div class="preco">R$ 465,55</div>
+        <div class="desconto">à vista (5% de desconto)</div>
+    </div>
+    </div>
+
+    <div class="card">
+        <img src="Imagens/pelicula.webp" alt="">
+        <h3>Película Protetora Antirreflex Galaxy S26+</h3>
+        <div class="preco">R$ 122,55</div>
+        <div class="desconto">à vista (5% de desconto)</div>
+    </div>
+
+    <div class="card">
+        <img src="Imagens/acessorios2.jpg" alt="">
+        <h3>Capa Slim Magnética Galaxy S26 Ultra
+Capa Slim Magnética Galaxy S26 Ultra</h3>
+        <div class="preco">R$ 369,00</div>
+        <div class="desconto">à vista</div>
+    </div>
+
+    <div class="card">
+        <img src="Imagens/acessorios4.jpg" alt="">
+        <h3>Galaxy Ring</h3>
+        <div class="preco">R$3.149,10</div>
+        <div class="desconto">à vista</div>
+    </div>
+
+</section>
+
+<div class="aviso">
+    *Imagem ilustrativa. Alguns recursos de IA exigem login na conta Samsung.<br>
+    *Produtos vendidos separadamente.<br>
+    *A disponibilidade dos produtos pode variar conforme a região.
+</div>
+
+<footer>
+    Copyright © 1995-2026 Samsung. Todos os direitos reservados.<br><br>
+
+    Samsung Eletrônica da Amazônia LTDA.<br>
+    Manaus/AM - Brasil.<br><br>
+
+    Formas de pagamento aceitas: Pix e Cartão de Crédito.
+</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
+  authDomain: "samsung-cd18d.firebaseapp.com",
+  projectId: "samsung-cd18d",
+  storageBucket: "samsung-cd18d.firebasestorage.app",
+  messagingSenderId: "582826463476",
+  appId: "1:582826463476:web:063e0b28af2d2626d24ea1",
+  measurementId: "G-Y3GJJTRXQ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.irParaPerfil = function(e) {
+  e.preventDefault();
+  
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.href = 'show.html';
+    } else {
+      window.location.href = 'login.html';
+    }
+  });
+};
+</script>
+
+<script src="Js/carrinho.js"></script>
+<script src="Js/add-buttons.js"></script>
+<script src="Js/init-carrinho.js"></script>
+
+</body>
+</html>

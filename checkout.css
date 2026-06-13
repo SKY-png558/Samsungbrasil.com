@@ -1,0 +1,335 @@
+/* ====================================
+   CHECKOUT STYLES
+   ==================================== */
+
+.container-checkout {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    min-height: calc(100vh - 300px);
+}
+
+.checkout-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* ============ RESUMO DO PEDIDO ============ */
+.resumo-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.resumo-section h2 {
+    font-size: 22px;
+    color: #0078ff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resumo-itens {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.resumo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info strong {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.item-info small {
+    color: #999;
+    font-size: 12px;
+}
+
+.item-preco {
+    font-weight: bold;
+    color: #0078ff;
+    font-size: 16px;
+}
+
+/* ============ RESUMO TOTAIS ============ */
+.resumo-totais {
+    background: #f5f7fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.total-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.total-item span:last-child {
+    font-weight: 600;
+}
+
+.total-final {
+    border-top: 2px solid #ddd;
+    padding-top: 15px;
+    margin-top: 10px;
+    font-size: 18px !important;
+    color: #0078ff !important;
+}
+
+.btn-voltar {
+    width: 100%;
+    padding: 12px;
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #e0e0e0;
+    border-color: #999;
+}
+
+/* ============ FORMULÁRIO DE PAGAMENTO ============ */
+.pagamento-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pagamento-section h2 {
+    font-size: 22px;
+    color: #0078ff;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #0078ff;
+    background: #f5fbff;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* ============ MÉTODO DE PAGAMENTO ============ */
+.metodos-pagamento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metodo {
+    position: relative;
+    cursor: pointer;
+}
+
+.metodo input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.metodo span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.3s;
+    font-weight: 600;
+    color: #333;
+}
+
+.metodo input[type="radio"]:checked + span {
+    background: #f0f8ff;
+    border-color: #0078ff;
+    color: #0078ff;
+}
+
+.metodo i {
+    font-size: 20px;
+}
+
+.cartao-section {
+    background: #f5f7fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* ============ MENSAGENS ============ */
+.mensagem {
+    display: none;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mensagem.erro {
+    display: block;
+    background: #fee;
+    color: #c33;
+    border: 2px solid #c33;
+}
+
+.mensagem.sucesso {
+    display: block;
+    background: #efe;
+    color: #3c3;
+    border: 2px solid #3c3;
+}
+
+/* ============ BOTÕES FINAIS ============ */
+.botoes-finais {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-cancelar {
+    background: #f0f0f0;
+    color: #333;
+    border: 2px solid #ddd;
+}
+
+.btn-cancelar:hover {
+    background: #e0e0e0;
+    border-color: #999;
+}
+
+.btn-confirmar {
+    background: linear-gradient(135deg, #0078ff 0%, #00a8ff 100%);
+    color: white;
+}
+
+.btn-confirmar:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 120, 255, 0.3);
+}
+
+.btn-confirmar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 768px) {
+    .checkout-content {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-section {
+        position: static;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .metodos-pagamento {
+        grid-template-columns: 1fr;
+    }
+
+    .botoes-finais {
+        flex-direction: column;
+    }
+
+    .resumo-section h2,
+    .pagamento-section h2 {
+        font-size: 18px;
+    }
+
+    .checkout-content {
+        gap: 20px;
+    }
+}
