@@ -1,93 +1,212 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho - Samsung</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/carrinho.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/carrinho.css">
+
+
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-            <img src="Imagens/logo2.png" alt="Logo da Samsung">
-            <p>BRASIL • 1986-2026</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">INÍCIO</a></li>
-                <li><a href="mobile.html">MOBILE</a></li>
-                <li><a href="eletrodomestico.html">ELETRODOMÉSTICO</a></li>
-                <li><a href="acessorios.html">ACESSÓRIOS</a></li>
-                <li><a href="monitores.html">MONITORES</a></li>
-            </ul>
-        </nav>
-        <div class="acoes">
-            <a href="carrinho-novo.html" title="Carrinho" style="position: relative;">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="contador-carrinho" style="display: none;">0</span>
-            </a>
-            <a href="#" onclick="irParaPerfil(event)" title="Minha Conta" style="cursor: pointer;">
-                <i class="fa-solid fa-user"></i>
-            </a>
-        </div>
-    </header>
 
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
-        <h1 style="margin-bottom: 30px; color: #333;">🛒 Seu Carrinho</h1>
+<!-- HEADER -->
 
-        <div style="display: grid; grid-template-columns: 1fr 300px; gap: 30px;">
-            <!-- Itens do Carrinho -->
-            <div class="carrinho-itens">
-                <!-- Será preenchido por JavaScript -->
-            </div>
+<header>
 
-            <!-- Resumo do Carrinho -->
-            <div class="resumo-carrinho" style="display: none; height: fit-content; position: sticky; top: 20px;">
-                <!-- Será preenchido por JavaScript -->
-            </div>
-        </div>
+    <div class="logo">
+        <img src="Imagens/logo2.png" alt="Samsung">
+        <p>BRASIL • 1986-2026</p>
     </div>
 
-    <footer>
+    <nav>
+        <ul>
+            <li><a href="index.html">INÍCIO</a></li>
+            <li><a href="mobile.html">MOBILE</a></li>
+            <li><a href="eletrodomestico.html">ELETRODOMÉSTICOS</a></li>
+            <li><a href="acessorios.html">ACESSÓRIOS</a></li>
+            <li><a href="monitores.html">MONITORES</a></li>
+        </ul>
+    </nav>
+
+    <div class="acoes">
+
+        <a href="carrinho.html" title="Carrinho">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span class="contador-carrinho" style="display:none;">
+                0
+            </span>
+
+        </a>
+
+        <a href="#" onclick="irParaPerfil(event)" title="Minha Conta">
+            <i class="fa-solid fa-user"></i>
+        </a>
+
+    </div>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<div class="container">
+
+    <h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+        Seu Carrinho
+    </h1>
+
+    <div>
+
+        <!-- ITENS -->
+        <div class="carrinho-itens">
+
+            <!-- O JavaScript preenche aqui -->
+
+        </div>
+
+        <!-- RESUMO -->
+        <aside class="resumo-carrinho" style="display:none;">
+
+            <!-- O JavaScript preenche aqui -->
+
+        </aside>
+
+    </div>
+
+    <!-- PAGAMENTOS -->
+
+    <section class="payment">
+
+        <h2>Formas de Pagamento</h2>
+
+        <div class="pagamentos">
+
+            <i class="fa-brands fa-pix"></i>
+
+            <i class="fa-brands fa-cc-visa"></i>
+
+            <i class="fa-brands fa-cc-mastercard"></i>
+
+            <i class="fa-brands fa-cc-amex"></i>
+
+            <i class="fa-brands fa-paypal"></i>
+
+        </div>
+
+        <div class="help">
+
+            <h3>Precisa de Ajuda?</h3>
+
+            <p>
+                Central de Atendimento Samsung
+            </p>
+
+            <strong>
+                0800 007 2611
+            </strong>
+
+        </div>
+
+    </section>
+
+    <!-- OBSERVAÇÕES -->
+
+    <section class="note">
+
         <p>
-            Copyright © 1995-2026 Samsung. Todos os direitos reservados.<br/>
-            Samsung Eletrônica da Amazônia LTDA.<br/>
-            Formas de pagamento aceitas: Pix e Cartão de crédito.
+            *Imagem ilustrativa. Alguns recursos de IA exigem login na conta Samsung.
         </p>
-    </footer>
 
-    <script src="Js/carrinho.js"></script>
+        <p>
+            *Produtos vendidos separadamente.
+        </p>
 
-    <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+        <p>
+            *Experiência simulada apenas para fins ilustrativos.
+        </p>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
-      authDomain: "samsung-cd18d.firebaseapp.com",
-      projectId: "samsung-cd18d",
-      storageBucket: "samsung-cd18d.firebasestorage.app",
-      messagingSenderId: "582826463476",
-      appId: "1:582826463476:web:063e0b28af2d2626d24ea1",
-      measurementId: "G-Y3GJJTRXQ0"
-    };
+        <p>
+            *A disponibilidade dos produtos pode variar conforme a região.
+        </p>
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    </section>
 
-    window.irParaPerfil = function(e) {
-      e.preventDefault();
-      
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          window.location.href = 'show.html';
-        } else {
-          window.location.href = 'login.html';
+</div>
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    <p>
+        Copyright © 1995-2026 Samsung.
+        Todos os direitos reservados.
+        <br><br>
+
+        Samsung Eletrônica da Amazônia LTDA.
+        <br><br>
+
+        Este website é melhor visualizado nas versões mais recentes dos navegadores.
+        <br><br>
+
+        Formas de pagamento aceitas:
+        Pix e Cartão de Crédito.
+    </p>
+
+</footer>
+
+<!-- JS DO CARRINHO -->
+<script src="Js/carrinho.js"></script>
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
+    authDomain: "samsung-cd18d.firebaseapp.com",
+    projectId: "samsung-cd18d",
+    storageBucket: "samsung-cd18d.firebasestorage.app",
+    messagingSenderId: "582826463476",
+    appId: "1:582826463476:web:063e0b28af2d2626d24ea1",
+    measurementId: "G-Y3GJJTRXQ0"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.irParaPerfil = function(event){
+
+    event.preventDefault();
+
+    onAuthStateChanged(auth, (user)=>{
+
+        if(user){
+
+            window.location.href = "show.html";
+
+        }else{
+
+            window.location.href = "login.html";
+
         }
-      });
-    };
-    </script>
+
+    });
+
+};
+
+</script>
+```
 
 </body>
 </html>
