@@ -14,7 +14,7 @@ import {
   getDoc,
   setDoc
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
 const firebaseConfig = {
   apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
   authDomain: "samsung-cd18d.firebaseapp.com",
