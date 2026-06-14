@@ -2,8 +2,18 @@
 // AUTENTICAÇÃO - LOGIN
 // ====================================
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+import { 
+  getAuth, 
+  signInWithEmailAndPassword, 
+  signInWithPopup, 
+  GoogleAuthProvider } 
+from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC0V2t-XvpTq_2r_Z0YLc9_-3YF_1c4Mo0",
@@ -18,6 +28,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
 // Função de Login com Email
 window.fazerLogin = async function() {
@@ -118,12 +129,35 @@ window.googleLogin = async function() {
 
     console.log('Login Google bem-sucedido:', user.uid);
 
+    // Criar usuário no Firestore caso não exista
+const userRef = doc(db, "usuarios", user.uid);
+const userSnap = await getDoc(userRef);
+
+if (!userSnap.exists()) {
+
+  const nomeCompleto = user.displayName || "";
+  const partesNome = nomeCompleto.split(" ");
+
+  await setDoc(userRef, {
+    nome: partesNome[0] || "",
+    sobrenome: partesNome.slice(1).join(" ") || "",
+    email: user.email || "",
+    telefone: "",
+    dataNascimento: "",
+    fotoPerfil: user.photoURL || "",
+    criadoEm: new Date().toISOString()
+  });
+
+  console.log("Usuário Google criado no Firestore");
+}
+
     // Salvar no localStorage
     localStorage.setItem('userLogged', JSON.stringify({
       uid: user.uid,
       email: user.email,
       displayName: user.displayName
     }));
+    
 
     if (mensagemEl) {
       mensagemEl.className = 'mensagem sucesso';
