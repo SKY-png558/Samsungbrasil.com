@@ -7,7 +7,7 @@ function normalizarPreco(precoStr) {
     // Troca vírgula por ponto (4199,00 → 4199.00)
     valor = valor.replace(",", ".");
     // Converte para número
-    return parseFloat(valor);
+    return Number(valor);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
