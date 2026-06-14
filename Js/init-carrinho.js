@@ -1,13 +1,3 @@
-// Função para normalizar preços no formato brasileiro
-function normalizarPreco(precoStr) {
-    // Remove "R$" e espaços
-    let valor = precoStr.replace("R$", "").trim();
-    // Troca vírgula por ponto (4199,00 → 4199.00)
-    valor = valor.replace(",", ".");
-    // Converte para número
-    return Number(valor);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof carrinhoManager === 'undefined') {
         console.warn('CarrinhoManager não foi carregado antes deste script');
