@@ -4,8 +4,6 @@ function normalizarPreco(precoStr) {
     let valor = precoStr.replace("R$", "").trim();
     // Remove pontos de milhar (ex: 4.199,00 → 4199,00)
     valor = valor.replace(/\./g, "");
-    // Troca vírgula por ponto (4199,00 → 4199.00)
-    valor = valor.replace(",", ".");
     // Converte para número
     return Number(valor);
 }
