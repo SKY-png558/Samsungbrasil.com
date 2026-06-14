@@ -1,3 +1,15 @@
+// Função para normalizar preços no formato brasileiro
+function normalizarPreco(precoStr) {
+    // Remove "R$" e espaços
+    let valor = precoStr.replace("R$", "").trim();
+    // Remove pontos de milhar
+    valor = valor.replace(/\./g, "");
+    // Troca vírgula por ponto
+    valor = valor.replace(",", ".");
+    // Converte para número
+    return parseFloat(valor);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof carrinhoManager === 'undefined') {
         console.warn('CarrinhoManager não foi carregado antes deste script');
@@ -13,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const id = this.dataset.id;
             const nome = this.dataset.nome;
-            const preco = parseFloat(this.dataset.preco.replace("R$", "").replace(",", ".").trim());
+            const preco = normalizarPreco(this.dataset.preco);
             const imagem = this.dataset.imagem || 'Imagens/default.png';
 
             console.log(`✅ Adicionando ao carrinho: ${nome} (R$ ${preco.toFixed(2)})`);
@@ -39,4 +51,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-console.log('✅ Script de carrinho ajustado');
+console.log('✅ Script de carrinho ajustado e preços normalizados');
